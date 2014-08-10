@@ -1,0 +1,16 @@
+{
+    "contents" : "readData<-function(){\n  data<-read.table(\"household_power_consumption.txt\",col.names=c(\"Date\",\"Time\",\"Global_active_power\",\"Global_reactive_power\",\"Voltage\",\"Global_intensity\",\"Sub_metering_1\",\"Sub_metering_2\",\"Sub_metering_3\"),header=TRUE,na.string=\"?\",strip.white=TRUE,sep=\";\")\n  data$Date<-as.Date(data$Date,format=\"%d/%m/%Y\")\n  data$Time<-strptime(data$Time,format=\"%H:%M:%S\")\n  z<-data[data$Date>=\"2007-02-01\"&data$Date<=\"2007-02-02\",]\n  z\n}\nplot1<-function(){\n  z<-readData();\n  hist(z$Global_active_power,xlab=\"Global Active Power(kilowatts)\",main=\"Global Active Power\",col=\"red\");\n  dev.copy(png,file=fileName,width=480,height=480);\n  dev.off();\n}",
+    "created" : 1407653090607.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3876300911",
+    "id" : "AF9E05F1",
+    "lastKnownWriteTime" : 1407652229,
+    "path" : "E:/github/ExData_Plotting1/ExData_Plotting1/plot1.R",
+    "project_path" : "plot1.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
